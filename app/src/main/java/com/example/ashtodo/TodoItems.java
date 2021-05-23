@@ -14,6 +14,16 @@ public class TodoItems {
     public TodoItems() {
     }
 
+    public TodoItems( String title, String priority, String date, String time, String itemsConcatenate) {
+        this.id = id;
+        this.title = title;
+        this.priority = priority;
+        this.date = date;
+        this.time = time;
+        this.itemsConcatenate = itemsConcatenate;
+
+    }
+
     public TodoItems(String title, String priority, String date, String time, ArrayList<SubItems> subItems ) {
         this.title = title;
         this.priority = priority;
@@ -23,16 +33,7 @@ public class TodoItems {
 
     }
 
-    public TodoItems(int id, String title, String priority, String date, String time, ArrayList<SubItems> subItems) {
-        this.id = id;
-        this.title = title;
-        this.priority = priority;
-        this.date = date;
-        this.time = time;
-        this.subItems = subItems;
-        this.itemsConcatenate = concatenate(subItems);
 
-    }
 
     public TodoItems(int id, String title, String priority, String date, String time,
                      ArrayList<SubItems> subItems, String itemsConcatenate) {

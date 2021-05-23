@@ -18,14 +18,14 @@ import androidx.annotation.NonNull;
 public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
 
 
-    ItemClicked myAcyivity;
+   // ItemClicked myAcyivity;
     Context context;
     private  final  ArrayList<TodoItems> todoItems;
 
 
     public TodoAdapter(Context context, ArrayList<TodoItems> list)
     {
-        myAcyivity = (ItemClicked) context;
+       // myAcyivity = (ItemClicked) context;
         this.context = context;
         todoItems = list;
     }
@@ -46,6 +46,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
         holder.rbTimeSet.setText(todoItems.get(position).getTime());
         String prio = todoItems.get(position).getPriority();
 
+        prio = "H";
         if(prio.equals("H"))
        {
            //Drawable res =  holder.imgPriorityTag.getResources().getDrawable(R.drawable.red);
