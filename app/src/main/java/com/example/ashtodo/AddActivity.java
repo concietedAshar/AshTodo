@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -30,13 +31,14 @@ import java.util.Locale;
 
 public class AddActivity extends AppCompatActivity {
 
-    ImageView imgAddSubItems;
+    ImageView imgAddSubItems,imgCCancel;
     EditText etAddItems;
     RadioButton rbHigh,rbMedium,rbLow;
     Button btnSave;
     TextView tvCdate,tvCTime;
     EditText etTaskTitle;
     String priority,dateee,timeee,titleeee;
+    String subItesm = "" ;
     int hour,minutes;
 
 
@@ -74,13 +76,16 @@ public class AddActivity extends AppCompatActivity {
                 else
                 {
                     SubItems subItems = new SubItems(etAddItems.getText().toString());
+                    subItesm +=  etAddItems.getText().toString() + "\n";
                     todoSubItems.add(subItems);
                     etAddItems.setText("");
+                    Toast.makeText(AddActivity.this, ""+ subItesm, Toast.LENGTH_SHORT).show();
 
                 }
 
             }
         });
+
         myAdapter = new TodoItemAdapter(AddActivity.this,todoSubItems);
         recyclerView.setAdapter(myAdapter);
         myAdapter.notifyDataSetChanged();
@@ -143,6 +148,8 @@ public class AddActivity extends AppCompatActivity {
             }
         });
 
+
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -152,12 +159,30 @@ public class AddActivity extends AppCompatActivity {
                     timeee = tvCTime.getText().toString();
                     dateee = tvCdate.getText().toString();
 
-                }
-                else {
-                    rbHigh.setError("");
-                }
+                    Intent intent = new Intent(AddActivity.this,com.example.ashtodo.MainActivity.class);
+                    intent.putExtra("title",titleeee) ;
+                    intent.putExtra("time",timeee) ;
+                    intent.putExtra("date",dateee) ;
+                    //intent.putExtra("subItems",todoSubItems) ;
+
+                    intent.putExtra("subItems",subItesm) ;
+
+                    intent.putExtra("priority",priority) ;
+                     startActivity(intent);
+                     finish();
+                 }
+
             }
         });
+
+         imgCCancel.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent = new Intent(AddActivity.this,
+                         com.example.ashtodo.MainActivity.class);
+                 startActivity(intent);
+             }
+         });
 
     }//On create End
 
@@ -223,6 +248,7 @@ public class AddActivity extends AppCompatActivity {
         tvCdate = findViewById(R.id.tvCdate);
         tvCTime = findViewById(R.id.tvCTime);
         etTaskTitle = findViewById(R.id.etTaskTitle);
+        imgCCancel = findViewById(R.id.imgCCancel);
     }
 
     boolean isValidate()

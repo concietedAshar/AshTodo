@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements TodoAdapter.ItemClicked{
 
     FloatingActionButton fabAddTodo;
     @Override
@@ -28,10 +28,17 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+
     }
 
     void init()
     {
         fabAddTodo = findViewById(R.id.fabAddTodo);
+    }
+
+    @Override
+    public void onItemClicked(int index) {
+        //Intent intent = new Intent();
     }
 }

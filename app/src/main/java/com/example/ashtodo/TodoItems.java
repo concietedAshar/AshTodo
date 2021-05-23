@@ -8,13 +8,22 @@ public class TodoItems {
     String priority;
     String date;
     String time;
-    ArrayList<String> subItems;
+    ArrayList<SubItems> subItems;
     String itemsConcatenate;
 
     public TodoItems() {
     }
 
-    public TodoItems(int id, String title, String priority, String date, String time, ArrayList<String> subItems) {
+    public TodoItems(String title, String priority, String date, String time, ArrayList<SubItems> subItems ) {
+        this.title = title;
+        this.priority = priority;
+        this.date = date;
+        this.time = time;
+        this.subItems = subItems;
+
+    }
+
+    public TodoItems(int id, String title, String priority, String date, String time, ArrayList<SubItems> subItems) {
         this.id = id;
         this.title = title;
         this.priority = priority;
@@ -26,7 +35,7 @@ public class TodoItems {
     }
 
     public TodoItems(int id, String title, String priority, String date, String time,
-                     ArrayList<String> subItems, String itemsConcatenate) {
+                     ArrayList<SubItems> subItems, String itemsConcatenate) {
         this.id = id;
         this.title = title;
         this.priority = priority;
@@ -36,14 +45,16 @@ public class TodoItems {
         this.itemsConcatenate = itemsConcatenate;
     }
 
-    String concatenate(ArrayList<String> arrayList)
+    public static String concatenate(ArrayList<SubItems> arrayList)
     {
-       String  itemsConcatenate  = arrayList.get(0);
-        for(int i = 1; i< arrayList.size(); i++)
+       SubItems  itemsConcatenate  = arrayList.get(0);
+       String con = null;
+       for(int i = 1; i< arrayList.size(); i++)
         {
-            itemsConcatenate += "," + arrayList.get(i);
+            con = itemsConcatenate +  "," + arrayList.get(i);
         }
-        return itemsConcatenate;
+
+        return con;
     }
 
     public int getId() {
@@ -86,11 +97,11 @@ public class TodoItems {
         this.time = time;
     }
 
-    public ArrayList<String> getSubItems() {
+    public ArrayList<SubItems> getSubItems() {
         return subItems;
     }
 
-    public void setSubItems(ArrayList<String> subItems) {
+    public void setSubItems(ArrayList<SubItems> subItems) {
         this.subItems = subItems;
     }
 
