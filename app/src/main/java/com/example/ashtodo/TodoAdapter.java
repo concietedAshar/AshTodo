@@ -1,10 +1,15 @@
 package com.example.ashtodo;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.TextView;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
  import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,6 +41,32 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
+        holder.tvTitle.setText(todoItems.get(position).getTitle());
+        holder.tvDesc.setText(todoItems.get(position).getItemsConcatenate());
+        holder.rbTimeSet.setText(todoItems.get(position).getTime());
+        String prio = todoItems.get(position).getPriority();
+
+        if(prio.equals("H"))
+       {
+           //Drawable res =  holder.imgPriorityTag.getResources().getDrawable(R.drawable.red);
+           holder.imgPriorityTag.setImageResource(R.drawable.red);
+
+       }
+        if(prio.equals("M"))
+        {
+           //Drawable res =  holder.imgPriorityTag.getResources().getDrawable(R.drawable.red);
+           holder.imgPriorityTag.setImageResource(R.drawable.green);
+
+       }
+        if(prio.equals("L"))
+        {
+           //Drawable res =  holder.imgPriorityTag.getResources().getDrawable(R.drawable.red);
+           holder.imgPriorityTag.setImageResource(R.drawable.yellow);
+
+        }
+
+        holder.rbTimeSet.setText(todoItems.get(position).getTime());
+
     }
 
 
@@ -51,9 +82,16 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder
     {
+        TextView tvTitle,tvDesc;
+        ImageView imgPriorityTag;
+        RadioButton rbTimeSet;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            tvTitle = itemView.findViewById(R.id.tvTitle);
+            tvDesc =itemView.findViewById(R.id.tvDesc);
+            imgPriorityTag =itemView.findViewById(R.id.imgPriorityTag);
+            rbTimeSet = itemView.findViewById(R.id.rbTimeSet);
         }
     }
 }

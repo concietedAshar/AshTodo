@@ -22,7 +22,7 @@ public class TodoItemAdapter extends RecyclerView.Adapter<TodoItemAdapter.ViewHo
 
     public TodoItemAdapter(Context context, ArrayList<SubItems> list)
     {
-       // myAcyivity =  (ItemClicked) context;
+         myAcyivity =  (ItemClicked) context;
         this.context = context;
         subItems = list;
     }

@@ -253,7 +253,7 @@ public class AddActivity extends AppCompatActivity {
             }
 
         }
-        if(etTaskTitle.equals("")  || etTaskTitle.equals(" ") || etTaskTitle.equals(null) )
+        if(etTaskTitle.getText().toString().equals("")  || etTaskTitle.getText().toString().equals(" ") )
         {
             etTaskTitle.setError("Enter Title");
         }

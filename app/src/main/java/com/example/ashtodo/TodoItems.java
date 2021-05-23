@@ -21,6 +21,7 @@ public class TodoItems {
         this.date = date;
         this.time = time;
         this.subItems = subItems;
+        this.itemsConcatenate = concatenate(subItems);
 
     }
 
@@ -35,13 +36,14 @@ public class TodoItems {
         this.itemsConcatenate = itemsConcatenate;
     }
 
-    void concatenate(ArrayList<String> arrayList)
+    String concatenate(ArrayList<String> arrayList)
     {
-        itemsConcatenate  = arrayList.get(0);
+       String  itemsConcatenate  = arrayList.get(0);
         for(int i = 1; i< arrayList.size(); i++)
         {
             itemsConcatenate += "," + arrayList.get(i);
         }
+        return itemsConcatenate;
     }
 
     public int getId() {
@@ -90,6 +92,14 @@ public class TodoItems {
 
     public void setSubItems(ArrayList<String> subItems) {
         this.subItems = subItems;
+    }
+
+    public String getItemsConcatenate() {
+        return itemsConcatenate;
+    }
+
+    public void setItemsConcatenate(String itemsConcatenate) {
+        this.itemsConcatenate = itemsConcatenate;
     }
 
     @Override
