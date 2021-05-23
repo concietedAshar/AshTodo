@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Ash Todo</string>
+    <string name="addBtn">Add Button</string>
+    <string name="to_do">To Do</string>
+    <string name="add_some_task_for_your_ease">Add Some Task For Your Ease</string>
+    <string name="edit_Button">Edit Button</string>
+    <string name="Date_today">April 30, 2021</string>
+    <string name="calender_btn">Calender Button</string>
+    <string name="create_list">Create List</string>
+    <string name="enter_title">Enter Title</string>
+    <string name="list">List</string>
+    <string name="priority">Priority</string>
+    <string name="add_items">Add Items</string>
+    <string name="Low">L</string>
+    <string name="High">H</string>
+    <string name="Medium">M</string>
+    <string name="choose_date">Choose Date</string>
+    <string name="may_25_2021">May,25 2021</string>
+    <string name="choose_time">Choose Time</string>
+    <string name="_7_13_pm">7:13 PM</string>
+    <string name="save">Save</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="item_name">Item Name</string>
+    <string name="removeItem">Remove Item</string>
+    <string name="title">Title</string>
+    <string name="Time">7 : 15 PM</string>
+    <string name="priority_tag">priority Tag</string>
+    <string name="description">Description</string>
+    <string name="repeat">Repeat</string>
+</resources>
